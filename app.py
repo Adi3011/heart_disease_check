@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 import sklearn
 
-LOG_MODEL_PATH = "model/logistic.pkl"
+LOG_MODEL_PATH = "model/lgb.pkl"
 
 
 def main():
@@ -86,8 +86,9 @@ def main():
         Here, a logistic regression model using an oversampling technique
         was constructed using survey data of over 300k US residents from the year 2020.
         The Dataset is taken from Kaggle and you can make you own application too using this survey.
-        We used Logistic regression which gave(80%, accuracy) with 0.86 AUC score as we mostly had
-        binary features .
+        I trained my cleaned data using random forest,naive Bayes,SVM,logistic regression and lightgbm.
+        Logistic regression which gave(80%, accuracy) with 0.86 AUC ,random forest gave(95% accuracy with 0.91 AUC score)
+        while lightgbm gave(85% accuracy with 0.934 AUC). We had used lightgbm in our case.
         
         To predict your heart disease status, simply follow the steps bellow:
         1. Enter the parameters that best describe you;

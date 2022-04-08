@@ -5,10 +5,8 @@ import numpy as np
 import pickle
 import sklearn
 
-DATASET_PATH = "data/heart_2020.csv"
 LOG_MODEL_PATH = "model/logistic.pkl"
 
-heart=pd.read_csv(DATASET_PATH)
 
 def main():
     def user_input_features():

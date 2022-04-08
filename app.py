@@ -149,7 +149,7 @@ def main():
 
     data.fillna(0, inplace=True)
 
-    log_model= open("LOG_MODEL_PATH","rb")
+    log_model= open(LOG_MODEL_PATH,"rb")
     log_model=pickle.load(log_model)
 
     if submit:

@@ -1,4 +1,20 @@
 # Heart Condition Checker
+According to the CDC, there are several key factors that overwhelminghly influence the likelihood of heart disease. They write: About half of all Americans (47%) have at least 1 of 3 key risk factors for heart disease: high blood pressure, high cholesterol, and smoking.. Majore health factors include the following:
+
+high blood pressure,
+high blood cholesterol levels,
+diabetes mellitus,
+obesity.
+Heart disease also depends on habits and behaviors. Here, the CDC lists the following:
+
+eating a diet high in saturated fats, trans fat, and cholesterol,
+not getting enough physical activity,
+drinking too much alcohol,
+tobacco use,
+Also, the higher the age, the risk of the disease increases. It predominates in most ethnic groups (African Americans, American Indians and Alaska Natives), while in others it gives way to cancer (Asian Americans and Pacific Islanders and Hispanics).
+
+According to the aforementioned information, variables were isolated from the dataset first, whose scientific confirmation attests to a high impact on heart disease. After these were extracted and converted, other variables that do not have a leading effect on heart disease but may indirectly lead to it were included in the final dataset.
+
 The app created with Python to predict person's heart health condition based on well-trained machine learning model (logistic regression).
 
 

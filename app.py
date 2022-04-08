@@ -10,13 +10,13 @@ LOG_MODEL_PATH = "model/random_forest.pkl"
 
 
 def main():
-    @st.cache(persist=True)
-    def load_dataset() -> pd.DataFrame:
-        heart_df = pl.read_csv(DATASET_PATH)
-        heart_df = heart_df.to_pandas()
+    # @st.cache(persist=True)
+    def load_dataset():
+        heart_df = pd.read_csv(DATASET_PATH)
+        # heart_df = heart_df.to_pandas()
         return heart_df
 
-    def user_input_features() -> pd.DataFrame:
+    def user_input_features():
         race = st.sidebar.selectbox("Race", options=(race for race in heart['Race'].unique()))
         sex = st.sidebar.selectbox("Sex", options=(sex for sex in heart['Sex'].unique()))
         age_cat = st.sidebar.selectbox("Age category",
@@ -47,13 +47,12 @@ def main():
         skin_canc = st.sidebar.selectbox("Do you have skin cancer?", options=("No", "Yes"))
 
         features = pd.DataFrame({
-            "PhysicalHealth": [phys_health],
-            "MentalHealth": [ment_health],
-            "SleepTime": [sleep_time],
             "BMI": [bmi_cat],
             "Smoking": [smoking],
             "AlcoholDrinking": [alcohol_drink],
             "Stroke": [stroke],
+            "PhysicalHealth": [phys_health],
+            "MentalHealth": [ment_health],
             "DiffWalking": [diff_walk],
             "Sex": [sex],
             "AgeCategory": [age_cat],
@@ -61,6 +60,7 @@ def main():
             "Diabetic": [diabetic],
             "PhysicalActivity": [phys_act],
             "GenHealth": [gen_health],
+            "SleepTime": [sleep_time],
             "Asthma": [asthma],
             "KidneyDisease": [kid_dis],
             "SkinCancer": [skin_canc]
@@ -144,19 +144,13 @@ def main():
     data['BMI_Obese']=np.where(data['BMI']=='Obese (BMI >= 30.0)',1,0)
     data.drop('BMI',axis=1,inplace=True)
 
+    data=data.reindex(columns=['Smoking','AlcoholDrinking',
+    'Stroke','PhysicalHealth','MentalHealth',
+    'DiffWalking','Sex','AgeCategory','Race','Diabetic','PhysicalActivity',
+    'GenHealth','SleepTime','Asthma','KidneyDisease','SkinCancer',
+    'BMI_Normal','BMI_Underweight','BMI_Overweight','BMI_Obese','HeartDisease'])
 
-    # df = pd.concat([input_df, heart], axis=0)
-    # df = df.drop(columns=["HeartDisease"])
 
-    # cat_cols = ["BMICategory", "Smoking", "AlcoholDrinking", "Stroke", "DiffWalking",
-    #             "Sex", "AgeCategory", "Race", "Diabetic", "PhysicalActivity",
-    #             "GenHealth", "Asthma", "KidneyDisease", "SkinCancer"]
-    # for cat_col in cat_cols:
-    #     dummy_col = pd.get_dummies(df[cat_col], prefix=cat_col)
-    #     df = pd.concat([df, dummy_col], axis=1)
-    #     del df[cat_col]
-
-    # df = df[:1]
     data.fillna(0, inplace=True)
 
     log_model = pickle.load(open(LOG_MODEL_PATH, "rb"))

@@ -8,16 +8,11 @@ import sklearn
 DATASET_PATH = "data/heart_2020.csv"
 LOG_MODEL_PATH = "model/random_forest.pkl"
 
+heart=pd.read_csv(DATASET_PATH)
 
 def main():
-    # @st.cache(persist=True)
-    def load_dataset():
-        heart_df = pd.read_csv(DATASET_PATH)
-        # heart_df = heart_df.to_pandas()
-        return heart_df
-
     def user_input_features():
-        race = st.sidebar.selectbox("Race", options=(race for race in heart['Race'].unique()))
+        race = st.sidebar.selectbox("Race", options=('White', 'Black','Asian', 'American Indian/Alaskan Native','Other','Hispanic'))
         sex = st.sidebar.selectbox("Sex", options=(sex for sex in heart['Sex'].unique()))
         age_cat = st.sidebar.selectbox("Age category",
                                        options=(age_cat for age_cat in heart.AgeCategory.unique()))
@@ -105,12 +100,13 @@ def main():
         than perfect accuracy, so if you have any problems, consult a human doctor.**
         """)
 
-    heart = load_dataset()
+    
 
     st.sidebar.title("Feature Selection")
     st.sidebar.image("images/heart-sidebar.png", width=100)
 
     data = user_input_features()
+    
     data['SkinCancer']=data['SkinCancer'].replace(['No','Yes'],[0,1])
     data['Asthma']=data['Asthma'].replace(['No','Yes'],[0,1])
     data['KidneyDisease']=data['KidneyDisease'].replace(['No','Yes'],[0,1])

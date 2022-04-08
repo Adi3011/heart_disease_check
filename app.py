@@ -6,7 +6,7 @@ import pickle
 import sklearn
 
 DATASET_PATH = "data/heart_2020.csv"
-LOG_MODEL_PATH = "model/random_forest.pkl"
+LOG_MODEL_PATH = "model/logistic.pkl"
 
 heart=pd.read_csv(DATASET_PATH)
 
@@ -149,7 +149,8 @@ def main():
 
     data.fillna(0, inplace=True)
 
-    log_model = pickle.load(open(LOG_MODEL_PATH, "rb"))
+    log_model= open("LOG_MODEL_PATH","rb")
+    log_model=pickle.load(log_model)
 
     if submit:
         prediction = log_model.predict(data)

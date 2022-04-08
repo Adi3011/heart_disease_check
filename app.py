@@ -3,6 +3,7 @@ import pandas as pd
 import polars as pl
 import numpy as np
 import pickle
+import lightgbm
 import sklearn
 
 LOG_MODEL_PATH = "model/lgb.pkl"

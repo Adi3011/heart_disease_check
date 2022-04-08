@@ -13,9 +13,9 @@ heart=pd.read_csv(DATASET_PATH)
 def main():
     def user_input_features():
         race = st.sidebar.selectbox("Race", options=('White', 'Black','Asian', 'American Indian/Alaskan Native','Other','Hispanic'))
-        sex = st.sidebar.selectbox("Sex", options=(sex for sex in heart['Sex'].unique()))
+        sex = st.sidebar.selectbox("Sex", options=('Female','Male'))
         age_cat = st.sidebar.selectbox("Age category",
-                                       options=(age_cat for age_cat in heart.AgeCategory.unique()))
+                                       options=('18-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80 or older'))
         bmi_cat = st.sidebar.selectbox("BMI category",
                                        options=(bmi_cat for bmi_cat in heart.BMI.unique()))
         sleep_time = st.sidebar.number_input("How many hours on average do you sleep?", 0, 24, 7)

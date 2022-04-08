@@ -148,7 +148,7 @@ def main():
     'Stroke','PhysicalHealth','MentalHealth',
     'DiffWalking','Sex','AgeCategory','Race','Diabetic','PhysicalActivity',
     'GenHealth','SleepTime','Asthma','KidneyDisease','SkinCancer',
-    'BMI_Normal','BMI_Underweight','BMI_Overweight','BMI_Obese','HeartDisease'])
+    'BMI_Normal','BMI_Underweight','BMI_Overweight','BMI_Obese'])
 
 
     data.fillna(0, inplace=True)

@@ -17,10 +17,10 @@ def main():
         age_cat = st.sidebar.selectbox("Age category",
                                        options=('18-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80 or older'))
         bmi_cat = st.sidebar.selectbox("BMI category",
-                                       options=(bmi_cat for bmi_cat in heart.BMI.unique()))
+                                       options=('Normal(BMI > 18.5 and <25.5)','Underweight (BMI <= 18.5)','Overweight(BMI >=25.5 and BMI<30.0)','Obese (BMI >= 30.0)'))
         sleep_time = st.sidebar.number_input("How many hours on average do you sleep?", 0, 24, 7)
         gen_health = st.sidebar.selectbox("How can you define your general health?",
-                                          options=(gen_health for gen_health in heart.GenHealth.unique()))
+                                          options=('Very good' ,'Fair', 'Good', 'Poor', 'Excellent'))
         phys_health = st.sidebar.number_input("For how many days during the past 30 days was"
                                               " your physical health not good?", 0, 30, 0)
         ment_health = st.sidebar.number_input("For how many days during the past 30 days was"
@@ -36,7 +36,7 @@ def main():
         diff_walk = st.sidebar.selectbox("Do you have serious difficulty walking"
                                          " or climbing stairs?", options=("No", "Yes"))
         diabetic = st.sidebar.selectbox("Have you ever had diabetes?",
-                                        options=(diabetic for diabetic in heart.Diabetic.unique()))
+                                        options=('Yes', 'No', 'No, borderline diabetes', 'Yes (during pregnancy)'))
         asthma = st.sidebar.selectbox("Do you have asthma?", options=("No", "Yes"))
         kid_dis = st.sidebar.selectbox("Do you have kidney disease?", options=("No", "Yes"))
         skin_canc = st.sidebar.selectbox("Do you have skin cancer?", options=("No", "Yes"))

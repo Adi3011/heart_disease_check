@@ -86,8 +86,8 @@ def main():
         Here, a logistic regression model using an oversampling technique
         was constructed using survey data of over 300k US residents from the year 2020.
         The Dataset is taken from Kaggle and you can make you own application too using this survey.
-        We used Random forest which gave(95%, accuracy) but as our data contains 
-        mostly binary features we can also use using logistic regression with 82%, accuracy which is also good.
+        We used Logistic regression which gave(80%, accuracy) with 0.86 AUC score as we mostly had
+        binary features .
         
         To predict your heart disease status, simply follow the steps bellow:
         1. Enter the parameters that best describe you;

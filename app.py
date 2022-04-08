@@ -6,7 +6,7 @@ import pickle
 import lightgbm
 import sklearn
 
-LOG_MODEL_PATH = "model/lgb.pkl"
+LOG_MODEL_PATH = "model/logistic.pkl"
 
 
 def main():
@@ -89,7 +89,7 @@ def main():
         The Dataset is taken from Kaggle and you can make you own application too using this survey.
         I trained my cleaned data using random forest,naive Bayes,SVM,logistic regression and lightgbm.
         Logistic regression which gave(80%, accuracy) with 0.86 AUC ,random forest gave(95% accuracy with 0.91 AUC score)
-        while lightgbm gave(85% accuracy with 0.934 AUC). We had used lightgbm in our case.
+        while lightgbm gave(85% accuracy with 0.934 AUC).
         
         To predict your heart disease status, simply follow the steps bellow:
         1. Enter the parameters that best describe you;
